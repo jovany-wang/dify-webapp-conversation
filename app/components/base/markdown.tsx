@@ -1,4 +1,5 @@
 import ReactMarkdown from 'react-markdown'
+import rehypeSanitize from 'rehype-sanitize'
 import 'katex/dist/katex.min.css'
 import RemarkMath from 'remark-math'
 import RemarkBreaks from 'remark-breaks'
@@ -14,6 +15,7 @@ export function Markdown(props: { content: string }) {
         remarkPlugins={[RemarkMath, RemarkGfm, RemarkBreaks]}
         rehypePlugins={[
           RehypeKatex,
+          rehypeSanitize,
         ]}
         components={{
           code({ node, inline, className, children, ...props }) {
